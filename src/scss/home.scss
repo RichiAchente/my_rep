@@ -140,7 +140,9 @@
 	-ms-flex: 0 0 40%;
 	flex: 0 0 40%;
 }
-@media (max-width: 767.98px) {
+
+// TODO: первый блок встает на весь экран
+@media (max-width: 1024px) {
 	.collection__column {
 		-webkit-box-flex: 1;
 		-ms-flex: 1 1 100%;
@@ -159,6 +161,7 @@
 	padding: 75px 80px 75px 80px;
 	width: 880px;
 }
+
 @media (max-width: 892px) {
 	.collection-body {
 		padding: 30px 20px 30px 30px;
@@ -183,6 +186,7 @@
 	margin: 0px 0px 50px 0px;
 	display: flex;
 	justify-content: center;
+	@include adaptiveValue("font-size", 36, 30, 2560, 1440, 1);
 }
 @media (max-width: 892px) {
 	.collection-body__title {
@@ -209,12 +213,23 @@
 	width: 100%;
 	&__items {
 		margin-right: 50px;
-		max-width: 100%;
+		//max-width: 100%;
+		@include adaptiveValue("margin-right", 50, 40, 2560, 1440, 1);
 	}
 
 	&__items-photo {
 		background: #191b1c;
 		padding: 55px 23px 56px 22px;
+		@include adaptiveValue("width", 280, 250, 2560, 1440, 1);
+		@include adaptiveValue("padding-right", 23, 18, 2560, 1440, 1);
+		@include adaptiveValue("padding-left", 22, 18, 2560, 1440, 1);
+	}
+
+	@media (max-width: $pc) {
+		&__items-photo1 {
+			width: 200px;
+			height: 200px;
+		}
 	}
 
 	&__items-title {
@@ -224,7 +239,14 @@
 		font-size: 18px;
 		line-height: 24px;
 		color: #ffffff;
+		text-align: left;
+		@include adaptiveValue("font-size", 18, 16, 2560, 1440, 1);
 	}
+	/**
+* ! Пример
+* ? affsdfds
+* TODO: dfsfsffs
+ */
 
 	&__items-price {
 		font-family: Playfair Display;
@@ -233,10 +255,13 @@
 		font-size: 16px;
 		line-height: 21px;
 		color: #d0d0d0;
+		text-align: left;
+		@include adaptiveValue("font-size", 16, 14, 2560, 1440, 1);
 	}
 
 	&__items2 {
 		margin-right: 50px;
+		@include adaptiveValue("margin-right", 50, 40, 2560, 1440, 1);
 	}
 
 	&__items-photo {
@@ -264,6 +289,7 @@
 	}
 
 	&__items3 {
+		@include adaptiveValue("margin-right", 50, -40, 2560, 1440, 1);
 	}
 
 	&__items-photo {
@@ -326,10 +352,6 @@
 			text-transform: uppercase;
 			color: #fff;
 			border: 2px solid #fff;
-		}
-	}
-	.-ibg {
-		&_contain {
 		}
 	}
 }
